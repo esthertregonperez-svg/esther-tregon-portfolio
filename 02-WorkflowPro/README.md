@@ -1,127 +1,144 @@
-# 🏗️ WorkflowPro
+🏗️ 02-ConstructionFlow ERP
+Sistema ERP para la gestión integral de empresas de construcción
+¿Qué es?
 
-Sistema web de gestión empresarial desarrollado para digitalizar y automatizar los procesos de una empresa del sector de la construcción.
+ConstructionFlow ERP es una aplicación web desarrollada para digitalizar el flujo completo de trabajo de una empresa de construcción.
 
----
+El sistema permite centralizar la información de clientes, obras, presupuestos, personal, materiales y documentación en una única plataforma, mejorando la organización, la comunicación entre departamentos y la toma de decisiones mediante datos en tiempo real.
 
-# 📖 Descripción
+La aplicación se apoya en la base de datos ConstructionDB, incorporando una interfaz moderna, control de usuarios por roles y automatización de procesos internos.
 
-WorkflowPro es una aplicación web diseñada para centralizar la gestión de una empresa de construcción en una única plataforma.
+🎯 Objetivos
+Digitalizar los procesos administrativos y técnicos.
+Eliminar el uso de hojas de cálculo.
+Centralizar toda la información empresarial.
+Reducir errores administrativos.
+Mejorar la comunicación entre departamentos.
+Automatizar tareas repetitivas.
+Facilitar la toma de decisiones.
+👥 Roles
+Administrador
 
-El objetivo es sustituir procesos manuales y hojas de cálculo por un sistema moderno que permita controlar obras, presupuestos, empleados, materiales, clientes y flujos de trabajo de forma eficiente.
+Dirección
 
-Este proyecto nace como evolución de **ConstructionDB**, ampliando la base de datos con una interfaz web moderna, gestión de usuarios y automatización de procesos.
+Administración
 
----
+Recepción
 
-# 🎯 Objetivos
+Comercial
 
-- Digitalizar los procesos internos.
-- Automatizar tareas repetitivas.
-- Mejorar el seguimiento de las obras.
-- Centralizar toda la información empresarial.
-- Reducir errores administrativos.
-- Facilitar la toma de decisiones mediante datos en tiempo real.
+Técnico
 
----
+Jefe de obra
 
-# 👥 Roles de usuario
+Cada usuario tendrá un escritorio personalizado según sus permisos.
 
-- Dirección
-- Administración
-- Comercial
-- Técnico
-- Jefe de Obra
-- Recepción
-
-Cada usuario dispone de un escritorio personalizado según sus permisos.
-
----
-
-# 🚀 Funcionalidades
-
-- Inicio de sesión seguro.
-- Gestión de usuarios.
-- Gestión de clientes.
-- Gestión de obras.
-- Presupuestos.
-- Materiales y stock.
-- Control económico.
-- Seguimiento de procesos.
-- Paneles personalizados.
-- Exportación de información.
-- Sistema de permisos por roles.
-- Automatización de procesos.
-
----
-
-# 🛠️ Tecnologías
-
-## Frontend
-
-- HTML5
-- CSS3
-- JavaScript
-
-## Backend
-
-- Node.js
-- Express.js
-
-## Base de datos
-
-- MySQL
-
-## Desarrollo
-
-- Visual Studio Code
-- Git
-- GitHub
-
----
-
-# 📂 Estructura del proyecto
-
-```
-WorkflowPro
-│
-├── backend
-├── frontend
-├── database
-├── api
-├── diagrams
-├── docs
-├── images
-└── deployment
-```
-
----
-
-# 📈 Estado del proyecto
+🚀 Módulos
+👤 Clientes
+Alta
+Modificación
+Historial
+Obras asociadas
+🏗️ Obras
+Alta
+Seguimiento
+Estado
+Costes
+Documentación
+📄 Presupuestos
+Crear
+Modificar
+Versionado
+Exportar PDF
+👷 Empleados
+Categorías
+Asignación a obras
+Disponibilidad
+📦 Materiales
+Inventario
+Stock
+Consumos
+🚚 Proveedores
+Pedidos
+Recepción de material
+Histórico
+💰 Facturación
+Facturas
+Pagos
+Cobros
+📊 Dashboard
+Obras activas
+Presupuestos pendientes
+Facturación
+Material consumido
+KPIs
+🛠 Tecnologías
+Backend
+Node.js
+Express.js
+Frontend
+HTML5
+CSS3
+JavaScript
+Base de datos
+MySQL
+Desarrollo
+Git
+GitHub
+Visual Studio Code
+📂 Arquitectura
+Frontend
+      │
+      ▼
+Backend (Node.js)
+      │
+      ▼
+API REST
+      │
+      ▼
+ConstructionDB (MySQL)
+📈 Estado del proyecto
 
 🟡 En desarrollo
 
-Actualmente el proyecto se encuentra en fase de desarrollo y continuará ampliándose con nuevas funcionalidades y mejoras.
+Actualmente se encuentra en fase de implementación y evolucionará de forma progresiva incorporando nuevas funcionalidades y automatizaciones.
 
----
+🔮 Roadmap
+✔ Login
 
-# 🔮 Próximas mejoras
+✔ Roles
 
-- Dashboard interactivo.
-- Notificaciones.
-- Gestión documental.
-- Calendario de obras.
-- Informes automáticos.
-- Integración con Power BI.
-- Gestión avanzada de materiales.
-- Aplicación móvil.
+⬜ Dashboard
 
----
+⬜ Gestión de clientes
 
-# 👩‍💻 Autor
+⬜ Gestión de obras
 
-**Esther Tregón Pérez**
+⬜ Presupuestos
+
+⬜ Materiales
+
+⬜ Stock
+
+⬜ Proveedores
+
+⬜ Facturación
+
+⬜ Documentación
+
+⬜ Exportación PDF
+
+⬜ Power BI
+
+⬜ Azure
+
+⬜ IA
+🔗 Proyecto relacionado
+
+ConstructionFlow ERP utiliza como núcleo la base de datos 01-ConstructionDB, desarrollada previamente en MySQL y diseñada específicamente para gestionar toda la información de una empresa de construcción.
+
+👩‍💻 Autor
+
+Esther Tregón Pérez
 
 Analista de Datos Junior | Desarrolladora de Software Junior
-
-GitHub Portfolio: Código Azul
