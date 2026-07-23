@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acceso | ConstructionFlow ERP</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+
+  <main class="login">
+    <section class="login__tarjeta">
+
+      <header class="login__cabecera">
+        <img src="img/logo-construcciones-perez.png"
+             alt="Construcciones Pérez"
+             class="login__logo-cliente">
+        <h1 class="login__titulo">ConstructionFlow ERP</h1>
+        <p class="login__subtitulo">Accede con tus credenciales</p>
+      </header>
+
+      <form class="login__formulario" id="formulario-login" novalidate>
+
+        <div class="campo">
+          <label class="campo__etiqueta" for="email">Correo electrónico</label>
+          <input class="campo__control"
+                 type="email"
+                 id="email"
+                 name="email"
+                 autocomplete="username"
+                 required>
+        </div>
+
+        <div class="campo">
+          <label class="campo__etiqueta" for="password">Contraseña</label>
+          <input class="campo__control"
+                 type="password"
+                 id="password"
+                 name="password"
+                 autocomplete="current-password"
+                 required>
+        </div>
+
+        <p class="login__error" id="mensaje-error" role="alert" hidden></p>
+
+        <button class="boton boton--primario" type="submit" id="boton-acceder">
+          Acceder
+        </button>
+
+      </form>
+
+    </section>
+
+    <footer class="login__pie">
+      <img src="img/logo-codigo-azul.png"
+           alt="Código Azul"
+           class="login__logo-desarrollador">
+      <p>Desarrollado por Esther Tregón Pérez</p>
+    </footer>
+  </main>
+
+  <script src="js/login.js"></script>
+</body>
+</html>
