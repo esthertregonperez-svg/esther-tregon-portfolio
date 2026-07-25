@@ -1,0 +1,198 @@
+/**
+ * Plantilla base del ERP: cabecera, menu lateral, contenido y pie.
+ * Todos los valores proceden de variables.css.
+ */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { font-family: var(--fuente); background: var(--fondo-app); }
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ---------- CABECERA ---------- */
+
+.cabecera {
+  height: var(--alto-cabecera);
+  background: var(--azul-profundo);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--espacio-6);
+  flex-shrink: 0;
+}
+
+.cabecera__marca {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-3);
+}
+
+.cabecera__logo { height: 36px; width: auto; }
+
+.cabecera__empresa {
+  color: var(--texto-invertido);
+  font-size: var(--texto-base);
+  font-weight: var(--peso-medio);
+}
+
+.cabecera__producto {
+  color: var(--texto-menu);
+  font-size: var(--texto-xs);
+}
+
+.cabecera__usuario {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-3);
+}
+
+.cabecera__avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radio-redondo);
+  background: var(--azul-electrico);
+  color: var(--texto-invertido);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--texto-sm);
+  font-weight: var(--peso-medio);
+}
+
+.cabecera__rol {
+  color: var(--texto-invertido);
+  font-size: var(--texto-sm);
+  text-transform: capitalize;
+}
+
+.cabecera__salir {
+  background: transparent;
+  border: 1px solid var(--texto-menu);
+  color: var(--texto-invertido);
+  padding: var(--espacio-2) var(--espacio-4);
+  border-radius: var(--radio);
+  font-family: var(--fuente);
+  font-size: var(--texto-sm);
+  cursor: pointer;
+  transition: background var(--transicion);
+}
+
+.cabecera__salir:hover { background: var(--azul-navegacion); }
+
+/* ---------- CUERPO ---------- */
+
+.app__cuerpo { display: flex; flex: 1; }
+
+/* ---------- MENU ---------- */
+
+.menu {
+  width: var(--ancho-menu);
+  background: var(--azul-navegacion);
+  padding: var(--espacio-4) 0;
+  flex-shrink: 0;
+}
+
+.menu__seccion {
+  color: var(--texto-menu-titulo);
+  font-size: var(--texto-xs);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: var(--espacio-4) var(--espacio-5) var(--espacio-2);
+}
+
+.menu__enlace {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-3);
+  padding: var(--espacio-3) var(--espacio-5);
+  color: var(--texto-menu);
+  text-decoration: none;
+  font-size: var(--texto-base);
+  border-left: 3px solid transparent;
+  transition: background var(--transicion), color var(--transicion);
+}
+
+.menu__enlace:hover {
+  background: var(--azul-profundo);
+  color: var(--texto-invertido);
+}
+
+.menu__enlace--activo {
+  background: var(--azul-electrico);
+  color: var(--texto-invertido);
+  border-left-color: var(--texto-invertido);
+}
+
+.menu__icono { font-size: var(--texto-md); width: 20px; text-align: center; }
+
+/* ---------- CONTENIDO ---------- */
+
+.contenido { flex: 1; padding: var(--espacio-8); }
+
+.contenido__titulo {
+  font-size: var(--texto-xl);
+  font-weight: var(--peso-medio);
+  color: var(--texto-principal);
+}
+
+.contenido__subtitulo {
+  font-size: var(--texto-base);
+  color: var(--texto-secundario);
+  margin-top: var(--espacio-2);
+  margin-bottom: var(--espacio-8);
+  text-transform: capitalize;
+}
+
+/* ---------- TARJETAS ---------- */
+
+.tarjetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: var(--espacio-4);
+}
+
+.tarjeta {
+  background: var(--fondo-tarjeta);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-lg);
+  padding: var(--espacio-6);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--espacio-3);
+  transition: border-color var(--transicion), transform var(--transicion);
+}
+
+.tarjeta:hover {
+  border-color: var(--azul-electrico);
+  transform: translateY(-2px);
+}
+
+.tarjeta__icono { font-size: 28px; color: var(--azul-electrico); }
+
+.tarjeta__titulo {
+  font-size: var(--texto-base);
+  font-weight: var(--peso-medio);
+  color: var(--texto-principal);
+}
+
+/* ---------- PIE ---------- */
+
+.pie {
+  height: var(--alto-pie);
+  background: var(--azul-profundo);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--espacio-6);
+  color: var(--texto-menu);
+  font-size: var(--texto-xs);
+  flex-shrink: 0;
+}
+
+.pie strong { color: var(--azul-electrico); font-weight: var(--peso-medio); }
