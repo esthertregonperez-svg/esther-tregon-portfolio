@@ -76,3 +76,26 @@ export async function actualizarPasswordHash(idUsuario, passwordHash) {
     [passwordHash, idUsuario]
   );
 }
+/**
+ * Lista todos los usuarios del sistema.
+ * Nunca incluye password_hash.
+ */
+export async function listarTodos() {
+  const [filas] = await pool.query(
+    `SELECT
+       u.id_usuario,
+       u.email,
+       u.activo,
+       u.ultimo_acceso,
+       u.fecha_alta,
+       r.nombre_rol,
+       e.nombre    AS nombre_empleado,
+       e.apellidos AS apellidos_empleado
+     FROM usuario u
+     INNER JOIN rol r ON u.id_rol = r.id_rol
+     LEFT JOIN empleado e ON u.id_empleado = e.id_empleado
+     ORDER BY r.nombre_rol, u.email`
+  );
+
+  return filas;
+}

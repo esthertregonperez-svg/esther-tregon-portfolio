@@ -6,6 +6,7 @@ import express from 'express';
 import cors from 'cors';
 
 import authRoutes from './routes/auth.routes.js';
+import usuarioRoutes from './routes/usuario.routes.js';
 import { manejadorErrores } from './middlewares/error.middleware.js';
 
 const app = express();
@@ -21,6 +22,7 @@ app.get('/api/health', (req, res) => {
 });
 
 app.use('/api/auth', authRoutes);
+app.use('/api/usuarios', usuarioRoutes);
 
 app.use((req, res) => {
   res.status(404).json({
