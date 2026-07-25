@@ -1,0 +1,267 @@
+/* frontend/css/modulo.css */
+/* Estilos compartidos por todos los modulos del ERP (clientes, proyectos, facturas...).
+   Cabecera de pagina, barra de acciones, tabla y modal.
+   Todo el color, tamano y espaciado sale de variables.css. Cero valores en bruto. */
+
+/* ---------- Contenedor de la pagina ---------- */
+.modulo {
+  padding: var(--espacio-8);
+  max-width: var(--ancho-maximo);
+}
+
+.modulo__titulo {
+  color: var(--azul-profundo);
+  font-family: var(--fuente);
+  font-size: var(--texto-xl);
+  font-weight: var(--peso-medio);
+  margin-bottom: var(--espacio-6);
+}
+
+/* ---------- Barra superior: boton + buscador ---------- */
+.modulo__barra {
+  display: flex;
+  gap: var(--espacio-4);
+  align-items: center;
+  margin-bottom: var(--espacio-6);
+  flex-wrap: wrap;
+}
+
+.modulo__buscador {
+  flex: 1;
+  min-width: 220px;
+  height: var(--alto-campo);
+  padding: 0 var(--espacio-3);
+  border: 1px solid var(--borde-fuerte);
+  border-radius: var(--radio-sm);
+  background: var(--fondo-tarjeta);
+  font-family: var(--fuente);
+  font-size: var(--texto-base);
+  color: var(--texto-principal);
+}
+
+.modulo__buscador::placeholder {
+  color: var(--texto-tenue);
+}
+
+.modulo__buscador:focus {
+  outline: none;
+  border-color: var(--azul-electrico);
+  box-shadow: var(--anillo-foco);
+}
+
+/* ---------- Botones ---------- */
+.btn {
+  font-family: var(--fuente);
+  font-size: var(--texto-base);
+  font-weight: var(--peso-medio);
+  padding: var(--espacio-2) var(--espacio-5);
+  border: 1px solid transparent;
+  border-radius: var(--radio-sm);
+  cursor: pointer;
+  transition: background-color var(--transicion-rapida), border-color var(--transicion-rapida);
+}
+
+.btn--primario {
+  background: var(--azul-electrico);
+  color: var(--texto-invertido);
+}
+
+.btn--primario:hover {
+  background: var(--azul-hover);
+}
+
+.btn--secundario {
+  background: var(--fondo-tarjeta);
+  color: var(--texto-principal);
+  border-color: var(--borde-fuerte);
+}
+
+.btn--secundario:hover {
+  background: var(--neutro-fondo);
+}
+
+.btn--peligro {
+  background: var(--error);
+  color: var(--texto-invertido);
+}
+
+.btn--peligro:hover {
+  background: #B93A3A; /* NOTA: ver comentario abajo, no tienes variable de error-hover */
+}
+
+/* ---------- Tabla ---------- */
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--fondo-tarjeta);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  overflow: hidden;
+  box-shadow: var(--sombra-sm);
+}
+
+.tabla thead {
+  background: var(--azul-profundo);
+}
+
+.tabla th {
+  color: var(--texto-invertido);
+  text-align: left;
+  padding: var(--espacio-3) var(--espacio-4);
+  font-family: var(--fuente);
+  font-size: var(--texto-sm);
+  font-weight: var(--peso-medio);
+}
+
+.tabla td {
+  padding: var(--espacio-3) var(--espacio-4);
+  border-bottom: 1px solid var(--borde);
+  font-size: var(--texto-sm);
+  color: var(--texto-principal);
+}
+
+/* La ultima fila no necesita linea inferior: el borde de la tabla ya cierra. */
+.tabla tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Fila resaltada al pasar el raton: sensacion de "seleccionable". */
+.tabla tbody tr:hover {
+  background: var(--azul-suave);
+}
+
+/* Fila que se muestra cuando no hay datos o esta cargando. */
+.tabla__vacia td {
+  text-align: center;
+  color: var(--texto-secundario);
+  padding: var(--espacio-8) var(--espacio-4);
+  font-style: italic;
+}
+
+.tabla__vacia:hover {
+  background: transparent; /* que la fila de "vacio" no reaccione al hover */
+}
+
+/* Botones de la columna Acciones: pequenos y juntos. */
+.tabla__acciones {
+  display: flex;
+  gap: var(--espacio-2);
+}
+
+.tabla__acciones .btn {
+  padding: var(--espacio-1) var(--espacio-3);
+  font-size: var(--texto-xs);
+}
+
+/* ---------- Modal ---------- */
+/* Capa oscura que cubre la pantalla detras del formulario. */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 26, 47, 0.6); /* azul-profundo con transparencia; ver nota abajo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--espacio-4);
+  z-index: var(--capa-modal);
+}
+
+/* Cuando el HTML marca el modal con [hidden], que de verdad se oculte.
+   Sin esta regla, el display:flex de arriba lo mostraria igualmente. */
+.modal[hidden] {
+  display: none;
+}
+
+.modal__caja {
+  background: var(--fondo-tarjeta);
+  border-radius: var(--radio-lg);
+  width: 100%;
+  max-width: 480px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--sombra-lg);
+}
+
+.modal__cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--espacio-4) var(--espacio-6);
+  border-bottom: 1px solid var(--borde);
+}
+
+.modal__titulo {
+  color: var(--azul-profundo);
+  font-family: var(--fuente);
+  font-size: var(--texto-lg);
+  font-weight: var(--peso-medio);
+  margin: 0;
+}
+
+.modal__cerrar {
+  background: none;
+  border: none;
+  font-size: var(--texto-xl);
+  line-height: 1;
+  cursor: pointer;
+  color: var(--texto-secundario);
+}
+
+.modal__cerrar:hover {
+  color: var(--texto-principal);
+}
+
+.modal__cuerpo {
+  padding: var(--espacio-6);
+}
+
+.modal__pie {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--espacio-3);
+  padding: var(--espacio-4) var(--espacio-6);
+  border-top: 1px solid var(--borde);
+}
+
+/* ---------- Campos del formulario ---------- */
+.campo {
+  margin-bottom: var(--espacio-4);
+}
+
+.campo label {
+  display: block;
+  margin-bottom: var(--espacio-2);
+  font-family: var(--fuente);
+  font-size: var(--texto-sm);
+  color: var(--texto-principal);
+  font-weight: var(--peso-medio);
+}
+
+.campo input,
+.campo select {
+  width: 100%;
+  height: var(--alto-campo);
+  padding: 0 var(--espacio-3);
+  border: 1px solid var(--borde-fuerte);
+  border-radius: var(--radio-sm);
+  background: var(--fondo-tarjeta);
+  font-family: var(--fuente);
+  font-size: var(--texto-base);
+  color: var(--texto-principal);
+  box-sizing: border-box;
+}
+
+.campo input:focus,
+.campo select:focus {
+  outline: none;
+  border-color: var(--azul-electrico);
+  box-shadow: var(--anillo-foco);
+}
+
+/* Mensaje de error bajo un campo o en el modal. */
+.campo__error,
+.modal__error {
+  color: var(--error);
+  font-size: var(--texto-xs);
+  margin-top: var(--espacio-1);
+}

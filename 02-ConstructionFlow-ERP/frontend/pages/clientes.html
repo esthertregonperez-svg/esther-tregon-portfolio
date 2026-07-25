@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clientes | ConstructionFlow ERP</title>
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/modulo.css">
+</head>
+<body>
+
+  <div class="app">
+    <header class="cabecera" id="cabecera"></header>
+
+    <div class="app__cuerpo">
+      <nav class="menu" id="menu"></nav>
+
+      <main class="contenido">
+        <div class="modulo__cabecera">
+          <div>
+            <h1 class="contenido__titulo">Clientes</h1>
+            <p class="contenido__subtitulo" id="contador"></p>
+          </div>
+          <button class="boton boton--primario" id="boton-nuevo">Nuevo cliente</button>
+        </div>
+
+        <div class="modulo__barra">
+          <input type="search" id="buscador" class="modulo__buscador"
+                 placeholder="Buscar por nombre, razón social o CIF...">
+        </div>
+
+        <div class="tabla__contenedor">
+          <table class="tabla">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>CIF / DNI</th>
+                <th>Tipo</th>
+                <th>Teléfono</th>
+                <th>Email</th>
+                <th class="tabla__acciones">Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="tabla-cuerpo"></tbody>
+          </table>
+          <p class="tabla__vacio" id="mensaje-vacio" hidden>No se encontraron clientes.</p>
+        </div>
+      </main>
+    </div>
+
+    <footer class="pie">
+      <span>© 2026 Construcciones Pérez</span>
+      <span>Desarrollado por <strong>Código Azul</strong></span>
+    </footer>
+  </div>
+
+  <div class="modal" id="modal" hidden>
+    <div class="modal__caja">
+      <div class="modal__cabecera">
+        <h2 class="modal__titulo" id="modal-titulo">Nuevo cliente</h2>
+        <button class="modal__cerrar" id="modal-cerrar">&times;</button>
+      </div>
+
+      <form class="formulario" id="formulario" novalidate>
+        <input type="hidden" id="id_cliente">
+
+        <div class="campo">
+          <label class="campo__etiqueta" for="nombre">Nombre *</label>
+          <input class="campo__control" type="text" id="nombre" required>
+          <span class="campo__error" id="error-nombre"></span>
+        </div>
+
+        <div class="campo">
+          <label class="campo__etiqueta" for="razon_social">Razón social</label>
+          <input class="campo__control" type="text" id="razon_social">
+        </div>
+
+        <div class="campo">
+          <label class="campo__etiqueta" for="dni_cif">CIF / DNI *</label>
+          <input class="campo__control" type="text" id="dni_cif" required>
+          <span class="campo__error" id="error-dni_cif"></span>
+        </div>
+
+        <div class="campo">
+          <label class="campo__etiqueta" for="tipo_cliente">Tipo *</label>
+          <select class="campo__control" id="tipo_cliente" required>
+            <option value="particular">Particular</option>
+            <option value="empresa">Empresa</option>
+            <option value="administracion_publica">Administración pública</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label class="campo__etiqueta" for="telefono">Teléfono</label>
+          <input class="campo__control" type="text" id="telefono">
+        </div>
+
+        <div class="campo">
+          <label class="campo__etiqueta" for="email">Email</label>
+          <input class="campo__control" type="email" id="email">
+          <span class="campo__error" id="error-email"></span>
+        </div>
+
+        <div class="campo">
+          <label class="campo__etiqueta" for="direccion">Dirección</label>
+          <input class="campo__control" type="text" id="direccion">
+        </div>
+
+        <p class="formulario__error" id="error-general" hidden></p>
+
+        <div class="modal__pie">
+          <button type="button" class="boton boton--secundario" id="boton-cancelar">Cancelar</button>
+          <button type="submit" class="boton boton--primario" id="boton-guardar">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/auth-guard.js"></script>
+  <script src="../js/layout.js"></script>
+  <script src="../js/clientes.js"></script>
+</body>
+</html>
