@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Obras | ConstructionFlow ERP</title>
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/modulo.css">
+</head>
+<body>
+
+  <div class="app">
+    <header class="cabecera" id="cabecera"></header>
+
+    <div class="app__cuerpo">
+      <nav class="menu" id="menu"></nav>
+
+      <main class="contenido">
+        <div class="modulo__cabecera">
+          <div>
+            <h1 class="contenido__titulo">Obras</h1>
+            <p class="contenido__subtitulo" id="contador"></p>
+          </div>
+          <button class="boton boton--primario" id="boton-nuevo">Nueva obra</button>
+        </div>
+
+        <div class="modulo__barra">
+          <input type="search" id="buscador" class="modulo__buscador"
+                 placeholder="Buscar por obra, cliente o dirección...">
+        </div>
+
+        <div class="tabla__contenedor">
+          <table class="tabla">
+            <thead>
+              <tr>
+                <th>Obra</th>
+                <th>Cliente</th>
+                <th>Dirección</th>
+                <th>Inicio</th>
+                <th>Estado</th>
+                <th>Presupuesto</th>
+                <th class="tabla__acciones">Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="tabla-cuerpo"></tbody>
+          </table>
+          <p class="tabla__vacio" id="mensaje-vacio" hidden>No se encontraron obras.</p>
+        </div>
+      </main>
+    </div>
+
+    <footer class="pie">
+      <span>© 2026 Construcciones Pérez</span>
+      <span>Desarrollado por <strong>Código Azul</strong></span>
+    </footer>
+  </div>
+
+  <div class="modal" id="modal" hidden>
+    <div class="modal__caja">
+      <div class="modal__cabecera">
+        <h2 class="modal__titulo" id="modal-titulo">Nueva obra</h2>
+        <button class="modal__cerrar" id="modal-cerrar">&times;</button>
+      </div>
+
+      <form class="formulario" id="formulario" novalidate>
+        <input type="hidden" id="id_obra">
+
+        <div class="campo">
+          <label class="campo__etiqueta" for="id_cliente">Cliente *</label>
+          <select class="campo__control" id="id_cliente" required>
+            <option value="">Selecciona un cliente...</option>
+          </select>
+          <span class="campo__error" id="error-id_cliente"></span>
+        </div>
+
+        <div class="campo">
+          <label class="campo__etiqueta" for="nombre_obra">Nombre de la obra *</label>
+          <input class="campo__control" type="text" id="nombre_obra" required>
+          <span class="campo__error" id="error-nombre_obra"></span>
+        </div>
+
+        <div class="campo">
+          <label class="campo__etiqueta" for="direccion_obra">Dirección *</label>
+          <input class="campo__control" type="text" id="direccion_obra" required>
+          <span class="campo__error" id="error-direccion_obra"></span>
+        </div>
+
+        <div class="campo">
+          <label class="campo__etiqueta" for="fecha_inicio">Fecha de inicio *</label>
+          <input class="campo__control" type="date" id="fecha_inicio" required>
+          <span class="campo__error" id="error-fecha_inicio"></span>
+        </div>
+
+        <div class="campo">
+          <label class="campo__etiqueta" for="fecha_fin_prevista">Fecha fin prevista</label>
+          <input class="campo__control" type="date" id="fecha_fin_prevista">
+        </div>
+
+        <div class="campo">
+          <label class="campo__etiqueta" for="estado">Estado *</label>
+          <select class="campo__control" id="estado" required>
+            <option value="pendiente">Pendiente</option>
+            <option value="en_ejecucion">En ejecución</option>
+            <option value="finalizada">Finalizada</option>
+            <option value="cancelada">Cancelada</option>
+          </select>
+          <span class="campo__error" id="error-estado"></span>
+        </div>
+
+        <div class="campo">
+          <label class="campo__etiqueta" for="presupuesto_total_estimado">Presupuesto estimado (€)</label>
+          <input class="campo__control" type="number" step="0.01" min="0" id="presupuesto_total_estimado">
+          <span class="campo__error" id="error-presupuesto_total_estimado"></span>
+        </div>
+
+        <div class="campo">
+          <label class="campo__etiqueta" for="descripcion">Descripción</label>
+          <input class="campo__control" type="text" id="descripcion">
+        </div>
+
+        <p class="formulario__error" id="error-general" hidden></p>
+
+        <div class="modal__pie">
+          <button type="button" class="boton boton--secundario" id="boton-cancelar">Cancelar</button>
+          <button type="submit" class="boton boton--primario" id="boton-guardar">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/auth-guard.js"></script>
+  <script src="../js/layout.js"></script>
+  <script src="../js/obras.js"></script>
+</body>
+</html>
