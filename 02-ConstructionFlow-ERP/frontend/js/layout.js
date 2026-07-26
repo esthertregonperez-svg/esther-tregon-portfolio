@@ -6,19 +6,23 @@
  * de modo que 'usuario' y 'permisos' ya existan.
  */
 
+// Raiz del frontend dentro del servidor. Todas las rutas del menu parten de aqui,
+// de forma absoluta, para que funcionen desde cualquier pagina (raiz o /pages).
+const BASE = '/02-ConstructionFlow-ERP/frontend';
+
 const MODULOS = [
-  { clave: 'inicio',       etiqueta: 'Panel',        icono: '▦', enlace: 'dashboard.html', seccion: 'Principal' },
-  { clave: 'clientes',     etiqueta: 'Clientes',     icono: '◉', enlace: 'pages/clientes.html',     seccion: 'Principal' },
-  { clave: 'obras',        etiqueta: 'Obras',        icono: '▤', enlace: 'pages/obras.html',        seccion: 'Principal' },
-  { clave: 'presupuestos', etiqueta: 'Presupuestos', icono: '▧', enlace: 'pages/presupuestos.html', seccion: 'Principal' },
-  { clave: 'materiales',   etiqueta: 'Materiales',   icono: '▩', enlace: 'pages/materiales.html',   seccion: 'Almacen' },
-  { clave: 'stock',        etiqueta: 'Stock',        icono: '▣', enlace: 'pages/stock.html',        seccion: 'Almacen' },
-  { clave: 'proveedores',  etiqueta: 'Proveedores',  icono: '◈', enlace: 'pages/proveedores.html',  seccion: 'Almacen' },
-  { clave: 'pedidos',      etiqueta: 'Pedidos',      icono: '▨', enlace: 'pages/pedidos.html',      seccion: 'Almacen' },
-  { clave: 'facturacion',  etiqueta: 'Facturacion',  icono: '▥', enlace: 'pages/facturacion.html',  seccion: 'Gestion' },
-  { clave: 'empleados',    etiqueta: 'Empleados',    icono: '◐', enlace: 'pages/empleados.html',    seccion: 'Gestion' },
-  { clave: 'usuarios',     etiqueta: 'Usuarios',     icono: '◑', enlace: 'pages/usuarios.html',     seccion: 'Sistema' },
-  { clave: 'configuracion',etiqueta: 'Configuracion',icono: '◒', enlace: 'pages/configuracion.html',seccion: 'Sistema' }
+  { clave: 'inicio',       etiqueta: 'Panel',        icono: '▦', enlace: `${BASE}/dashboard.html`,            seccion: 'Principal' },
+  { clave: 'clientes',     etiqueta: 'Clientes',     icono: '◉', enlace: `${BASE}/pages/clientes.html`,       seccion: 'Principal' },
+  { clave: 'obras',        etiqueta: 'Obras',        icono: '▤', enlace: `${BASE}/pages/obras.html`,          seccion: 'Principal' },
+  { clave: 'presupuestos', etiqueta: 'Presupuestos', icono: '▧', enlace: `${BASE}/pages/presupuestos.html`,   seccion: 'Principal' },
+  { clave: 'materiales',   etiqueta: 'Materiales',   icono: '▩', enlace: `${BASE}/pages/materiales.html`,     seccion: 'Almacen' },
+  { clave: 'stock',        etiqueta: 'Stock',        icono: '▣', enlace: `${BASE}/pages/stock.html`,          seccion: 'Almacen' },
+  { clave: 'proveedores',  etiqueta: 'Proveedores',  icono: '◈', enlace: `${BASE}/pages/proveedores.html`,    seccion: 'Almacen' },
+  { clave: 'pedidos',      etiqueta: 'Pedidos',      icono: '▨', enlace: `${BASE}/pages/pedidos.html`,        seccion: 'Almacen' },
+  { clave: 'facturacion',  etiqueta: 'Facturacion',  icono: '▥', enlace: `${BASE}/pages/facturacion.html`,    seccion: 'Gestion' },
+  { clave: 'empleados',    etiqueta: 'Empleados',    icono: '◐', enlace: `${BASE}/pages/empleados.html`,      seccion: 'Gestion' },
+  { clave: 'usuarios',     etiqueta: 'Usuarios',     icono: '◑', enlace: `${BASE}/pages/usuarios.html`,       seccion: 'Sistema' },
+  { clave: 'configuracion',etiqueta: 'Configuracion',icono: '◒', enlace: `${BASE}/pages/configuracion.html`,  seccion: 'Sistema' }
 ];
 
 /**
@@ -67,7 +71,7 @@ function montarLayout(moduloActivo) {
 
   document.getElementById('cabecera').innerHTML = `
     <div class="cabecera__marca">
-      <img src="img/logo-construcciones-perez.png" alt="Construcciones Perez" class="cabecera__logo">
+      <img src="${BASE}/img/logo-construcciones-perez.png" alt="Construcciones Perez" class="cabecera__logo">
       <div>
         <div class="cabecera__empresa">Construcciones Perez</div>
         <div class="cabecera__producto">ConstructionFlow ERP</div>
@@ -83,6 +87,6 @@ function montarLayout(moduloActivo) {
 
   document.getElementById('boton-salir').addEventListener('click', () => {
     sessionStorage.clear();
-    window.location.replace('login.html');
+    window.location.replace(`${BASE}/pages/login.html`);
   });
 }

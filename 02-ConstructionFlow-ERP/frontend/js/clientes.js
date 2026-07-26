@@ -215,7 +215,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ---------------------------------------------------------
-  // Arranque: nada mas cargar la pagina, pedimos los clientes.
+  // Arranque: montamos el menu y pedimos los clientes.
   // ---------------------------------------------------------
+  montarLayout('clientes');
   cargarClientes();
 });
