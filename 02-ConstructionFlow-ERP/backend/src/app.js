@@ -8,6 +8,7 @@ import cors from 'cors';
 import clienteRoutes from './routes/cliente.routes.js';
 import obraRoutes from './routes/obra.routes.js';
 import presupuestoRoutes from './routes/presupuesto.routes.js';
+import proveedorRoutes from './routes/proveedor.routes.js';
 import authRoutes from './routes/auth.routes.js';
 import usuarioRoutes from './routes/usuario.routes.js';
 import { manejadorErrores } from './middlewares/error.middleware.js';
@@ -29,6 +30,7 @@ app.use('/api/usuarios', usuarioRoutes);
 app.use('/api/clientes', clienteRoutes);
 app.use('/api/obras', obraRoutes);
 app.use('/api/presupuestos', presupuestoRoutes);
+app.use('/api/proveedores', proveedorRoutes);
 
 app.use((req, res) => {
   res.status(404).json({
@@ -40,3 +42,4 @@ app.use((req, res) => {
 app.use(manejadorErrores);
 
 export default app;
+

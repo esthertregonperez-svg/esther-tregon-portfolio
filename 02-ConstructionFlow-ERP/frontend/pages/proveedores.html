@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proveedores | ConstructionFlow ERP</title>
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/modulo.css">
+</head>
+<body>
+
+  <div class="app">
+    <header class="cabecera" id="cabecera"></header>
+
+    <div class="app__cuerpo">
+      <nav class="menu" id="menu"></nav>
+
+      <main class="contenido">
+        <div class="modulo__cabecera">
+          <div>
+            <h1 class="contenido__titulo">Proveedores</h1>
+            <p class="contenido__subtitulo" id="contador"></p>
+          </div>
+          <button class="boton boton--primario" id="boton-nuevo">Nuevo proveedor</button>
+        </div>
+
+        <div class="modulo__barra">
+          <input type="search" id="buscador" class="modulo__buscador"
+                 placeholder="Buscar por empresa, CIF o contacto...">
+          <select id="filtro-estado" class="modulo__buscador" style="flex:0 0 auto; min-width:160px;">
+            <option value="activos">Activos</option>
+            <option value="baja">De baja</option>
+            <option value="todos">Todos</option>
+          </select>
+        </div>
+
+        <div class="tabla__contenedor">
+          <table class="tabla">
+            <thead>
+              <tr>
+                <th>Empresa</th>
+                <th>CIF</th>
+                <th>Contacto</th>
+                <th>Teléfono</th>
+                <th>Email</th>
+                <th>Estado</th>
+                <th class="tabla__acciones">Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="tabla-cuerpo"></tbody>
+          </table>
+          <p class="tabla__vacio" id="mensaje-vacio" hidden>No se encontraron proveedores.</p>
+        </div>
+      </main>
+    </div>
+
+    <footer class="pie">
+      <span>© 2026 Construcciones Pérez</span>
+      <span>Desarrollado por <strong>Código Azul</strong></span>
+    </footer>
+  </div>
+
+  <div class="modal" id="modal" hidden>
+    <div class="modal__caja">
+      <div class="modal__cabecera">
+        <h2 class="modal__titulo" id="modal-titulo">Nuevo proveedor</h2>
+        <button class="modal__cerrar" id="modal-cerrar">&times;</button>
+      </div>
+
+      <form class="formulario" id="formulario" novalidate>
+        <input type="hidden" id="id_proveedor">
+
+        <div class="campo">
+          <label class="campo__etiqueta" for="nombre_empresa">Nombre de la empresa *</label>
+          <input class="campo__control" type="text" id="nombre_empresa" required>
+          <span class="campo__error" id="error-nombre_empresa"></span>
+        </div>
+
+        <div class="campo">
+          <label class="campo__etiqueta" for="cif">CIF *</label>
+          <input class="campo__control" type="text" id="cif" required>
+          <span class="campo__error" id="error-cif"></span>
+        </div>
+
+        <div class="campo">
+          <label class="campo__etiqueta" for="persona_contacto">Persona de contacto</label>
+          <input class="campo__control" type="text" id="persona_contacto">
+        </div>
+
+        <div class="campo">
+          <label class="campo__etiqueta" for="telefono">Teléfono</label>
+          <input class="campo__control" type="text" id="telefono">
+        </div>
+
+        <div class="campo">
+          <label class="campo__etiqueta" for="email">Email</label>
+          <input class="campo__control" type="email" id="email">
+          <span class="campo__error" id="error-email"></span>
+        </div>
+
+        <div class="campo">
+          <label class="campo__etiqueta" for="direccion">Dirección</label>
+          <input class="campo__control" type="text" id="direccion">
+        </div>
+
+        <div class="campo">
+          <label class="campo__etiqueta" for="activo">Estado *</label>
+          <select class="campo__control" id="activo" required>
+            <option value="1">Alta</option>
+            <option value="0">Baja</option>
+          </select>
+        </div>
+
+        <p class="formulario__error" id="error-general" hidden></p>
+
+        <div class="modal__pie">
+          <button type="button" class="boton boton--secundario" id="boton-cancelar">Cancelar</button>
+          <button type="submit" class="boton boton--primario" id="boton-guardar">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/auth-guard.js"></script>
+  <script src="../js/layout.js"></script>
+  <script src="../js/proveedores.js"></script>
+</body>
+</html>
