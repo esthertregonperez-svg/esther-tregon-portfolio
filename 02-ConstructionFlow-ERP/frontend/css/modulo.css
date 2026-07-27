@@ -153,6 +153,13 @@
   font-size: var(--texto-xs);
 }
 
+/* Cantidad de stock por debajo del minimo: se resalta en rojo para avisar
+   de que hay que reponer ese material. */
+.tabla td.stock--bajo {
+  color: var(--error);
+  font-weight: var(--peso-fuerte);
+}
+
 /* ---------- Modal ---------- */
 /* Capa oscura que cubre la pantalla detras del formulario. */
 .modal {
@@ -221,6 +228,13 @@
   gap: var(--espacio-3);
   padding: var(--espacio-4) var(--espacio-6);
   border-top: 1px solid var(--borde);
+}
+
+/* Texto informativo dentro del modal (p.ej. el disponible de un material). */
+.modulo__info {
+  font-size: var(--texto-sm);
+  color: var(--texto-secundario);
+  margin: 0 0 var(--espacio-4) 0;
 }
 
 /* ---------- Campos del formulario ---------- */
