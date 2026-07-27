@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pedidos | ConstructionFlow ERP</title>
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/modulo.css">
+</head>
+<body>
+
+  <div class="app">
+    <header class="cabecera" id="cabecera"></header>
+
+    <div class="app__cuerpo">
+      <nav class="menu" id="menu"></nav>
+
+      <main class="contenido">
+        <div class="modulo__cabecera">
+          <div>
+            <h1 class="contenido__titulo">Pedidos a proveedores</h1>
+            <p class="contenido__subtitulo" id="contador"></p>
+          </div>
+          <button class="boton boton--primario" id="boton-nuevo">Nuevo pedido</button>
+        </div>
+
+        <div class="modulo__barra">
+          <input type="search" id="buscador" class="modulo__buscador"
+                 placeholder="Buscar por proveedor...">
+        </div>
+
+        <div class="tabla__contenedor">
+          <table class="tabla">
+            <thead>
+              <tr>
+                <th>Proveedor</th>
+                <th>Fecha pedido</th>
+                <th>Fecha recepción</th>
+                <th>Estado</th>
+                <th>Importe</th>
+                <th class="tabla__acciones">Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="tabla-cuerpo"></tbody>
+          </table>
+          <p class="tabla__vacio" id="mensaje-vacio" hidden>No se encontraron pedidos.</p>
+        </div>
+      </main>
+    </div>
+
+    <footer class="pie">
+      <span>© 2026 Construcciones Pérez</span>
+      <span>Desarrollado por <strong>Código Azul</strong></span>
+    </footer>
+  </div>
+
+  <div class="modal" id="modal" hidden>
+    <div class="modal__caja">
+      <div class="modal__cabecera">
+        <h2 class="modal__titulo" id="modal-titulo">Nuevo pedido</h2>
+        <button class="modal__cerrar" id="modal-cerrar">&times;</button>
+      </div>
+
+      <form class="formulario" id="formulario" novalidate>
+        <input type="hidden" id="id_pedido">
+
+        <div class="campo">
+          <label class="campo__etiqueta" for="id_proveedor">Proveedor *</label>
+          <select class="campo__control" id="id_proveedor" required>
+            <option value="">Selecciona un proveedor...</option>
+          </select>
+          <span class="campo__error" id="error-id_proveedor"></span>
+        </div>
+
+        <div class="campo">
+          <label class="campo__etiqueta" for="fecha_pedido">Fecha del pedido *</label>
+          <input class="campo__control" type="date" id="fecha_pedido" required>
+          <span class="campo__error" id="error-fecha_pedido"></span>
+        </div>
+
+        <div class="campo">
+          <label class="campo__etiqueta" for="fecha_recepcion">Fecha de recepción (opcional)</label>
+          <input class="campo__control" type="date" id="fecha_recepcion">
+        </div>
+
+        <div class="campo">
+          <label class="campo__etiqueta" for="estado">Estado *</label>
+          <select class="campo__control" id="estado" required>
+            <option value="pendiente">Pendiente</option>
+            <option value="recibido">Recibido</option>
+            <option value="cancelado">Cancelado</option>
+          </select>
+          <span class="campo__error" id="error-estado"></span>
+        </div>
+
+        <p class="formulario__error" id="error-general" hidden></p>
+
+        <div class="modal__pie">
+          <button type="button" class="boton boton--secundario" id="boton-cancelar">Cancelar</button>
+          <button type="submit" class="boton boton--primario" id="boton-guardar">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/auth-guard.js"></script>
+  <script src="../js/layout.js"></script>
+  <script src="../js/pedidos.js"></script>
+</body>
+</html>

@@ -12,6 +12,7 @@ import proveedorRoutes from './routes/proveedor.routes.js';
 import materialRoutes from './routes/material.routes.js';
 import categoriaMaterialRoutes from './routes/categoria-material.routes.js';
 import stockRoutes from './routes/stock.routes.js';
+import pedidoRoutes from './routes/pedido.routes.js';
 import authRoutes from './routes/auth.routes.js';
 import usuarioRoutes from './routes/usuario.routes.js';
 import { manejadorErrores } from './middlewares/error.middleware.js';
@@ -37,6 +38,7 @@ app.use('/api/proveedores', proveedorRoutes);
 app.use('/api/materiales', materialRoutes);
 app.use('/api/categorias-material', categoriaMaterialRoutes);
 app.use('/api/stock', stockRoutes);
+app.use('/api/pedidos', pedidoRoutes);
 
 app.use((req, res) => {
   res.status(404).json({
