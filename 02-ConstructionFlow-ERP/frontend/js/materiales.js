@@ -1,6 +1,7 @@
 // frontend/js/materiales.js
 // Logica de la pantalla de materiales.
 // Listar (con filtro) + crear + editar. Tres desplegables: categoria, proveedor, unidad.
+// Ademas: crear una categoria nueva al vuelo desde el formulario.
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -22,7 +23,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const selectCategoria = document.getElementById('id_categoria_material');
   const selectProveedor = document.getElementById('id_proveedor');
 
-  // Etiquetas legibles para la unidad (BD -> pantalla).
+  // Referencias del bloque "nueva categoria al vuelo".
+  const botonNuevaCategoria    = document.getElementById('boton-nueva-categoria');
+  const cajaNuevaCategoria     = document.getElementById('nueva-categoria-caja');
+  const inputNuevaCategoria    = document.getElementById('nueva_categoria_nombre');
+  const errorNuevaCategoria    = document.getElementById('error-nueva-categoria');
+  const botonGuardarCategoria  = document.getElementById('boton-guardar-categoria');
+  const botonCancelarCategoria = document.getElementById('boton-cancelar-categoria');
+
   const UNIDADES_LEGIBLES = {
     kg: 'kg', uds: 'uds', m: 'm', m2: 'm²', m3: 'm³',
     l: 'l', saco: 'saco', palet: 'palet',
@@ -36,11 +44,13 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ---------------------------------------------------------
-  // Rellenar desplegables (categorias y proveedores) una vez al cargar.
+  // Rellenar desplegables (categorias y proveedores).
   // ---------------------------------------------------------
   async function cargarCategoriasEnSelect() {
     const respuesta = await api.get('/categorias-material');
     if (!respuesta || !respuesta.success) return;
+    // Vaciamos y reconstruimos (util tras crear una nueva).
+    selectCategoria.innerHTML = '<option value="">Selecciona una categoría...</option>';
     respuesta.data.items.forEach((cat) => {
       const opcion = document.createElement('option');
       opcion.value = cat.id_categoria_material;
@@ -59,6 +69,49 @@ document.addEventListener('DOMContentLoaded', () => {
       selectProveedor.appendChild(opcion);
     });
   }
+
+  // ---------------------------------------------------------
+  // NUEVA CATEGORIA AL VUELO.
+  // ---------------------------------------------------------
+  function mostrarCajaCategoria() {
+    errorNuevaCategoria.textContent = '';
+    inputNuevaCategoria.value = '';
+    cajaNuevaCategoria.hidden = false;
+    inputNuevaCategoria.focus();
+  }
+
+  function ocultarCajaCategoria() {
+    cajaNuevaCategoria.hidden = true;
+    errorNuevaCategoria.textContent = '';
+  }
+
+  async function guardarNuevaCategoria() {
+    errorNuevaCategoria.textContent = '';
+    const nombre = inputNuevaCategoria.value.trim();
+
+    if (nombre === '') {
+      errorNuevaCategoria.textContent = 'Escribe un nombre para la categoría';
+      return;
+    }
+
+    const respuesta = await api.post('/categorias-material', { nombre_categoria: nombre });
+    if (!respuesta) return;
+
+    if (!respuesta.success) {
+      // Duplicado u otro error: mostramos el mensaje del backend.
+      errorNuevaCategoria.textContent = respuesta.error.message || 'No se pudo crear la categoría';
+      return;
+    }
+
+    // Exito: recargamos el desplegable y seleccionamos la nueva.
+    await cargarCategoriasEnSelect();
+    selectCategoria.value = respuesta.data.id_categoria_material;
+    ocultarCajaCategoria();
+  }
+
+  botonNuevaCategoria.addEventListener('click', mostrarCajaCategoria);
+  botonCancelarCategoria.addEventListener('click', ocultarCajaCategoria);
+  botonGuardarCategoria.addEventListener('click', guardarNuevaCategoria);
 
   // ---------------------------------------------------------
   // LISTAR.
@@ -132,19 +185,21 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ---------------------------------------------------------
-  // MODAL.
+  // MODAL material.
   // ---------------------------------------------------------
   function abrirModalNuevo() {
     modalTitulo.textContent = 'Nuevo material';
     formulario.reset();
     campoId.value = '';
     document.getElementById('activo').value = '1';
+    ocultarCajaCategoria();
     limpiarErrores();
     modal.hidden = false;
   }
 
   function abrirModalEditar(m) {
     modalTitulo.textContent = 'Editar material';
+    ocultarCajaCategoria();
     limpiarErrores();
 
     campoId.value = m.id_material;
@@ -179,7 +234,7 @@ document.addEventListener('DOMContentLoaded', () => {
   filtroEstado.addEventListener('change', cargarMateriales);
 
   // ---------------------------------------------------------
-  // GUARDAR.
+  // GUARDAR material.
   // ---------------------------------------------------------
   formulario.addEventListener('submit', async (evento) => {
     evento.preventDefault();
@@ -242,7 +297,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ---------------------------------------------------------
-  // Arranque: menu, desplegables y lista.
+  // Arranque.
   // ---------------------------------------------------------
   montarLayout('materiales');
   cargarCategoriasEnSelect();

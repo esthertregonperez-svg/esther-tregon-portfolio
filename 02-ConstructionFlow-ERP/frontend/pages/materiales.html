@@ -80,10 +80,26 @@
 
         <div class="campo">
           <label class="campo__etiqueta" for="id_categoria_material">Categoría *</label>
-          <select class="campo__control" id="id_categoria_material" required>
-            <option value="">Selecciona una categoría...</option>
-          </select>
+          <div style="display:flex; gap:0.5rem; align-items:center;">
+            <select class="campo__control" id="id_categoria_material" required>
+              <option value="">Selecciona una categoría...</option>
+            </select>
+            <button type="button" class="boton boton--secundario" id="boton-nueva-categoria"
+                    title="Crear nueva categoría" style="flex:0 0 auto;">+ Nueva</button>
+          </div>
           <span class="campo__error" id="error-id_categoria_material"></span>
+
+          <!-- Mini-formulario para crear categoria al vuelo (oculto por defecto) -->
+          <div id="nueva-categoria-caja" hidden
+               style="margin-top:0.5rem; padding:0.75rem; border:1px solid var(--borde); border-radius:var(--radio-sm); background:var(--neutro-fondo);">
+            <label class="campo__etiqueta" for="nueva_categoria_nombre">Nombre de la nueva categoría</label>
+            <input class="campo__control" type="text" id="nueva_categoria_nombre" placeholder="Ej: Fontanería">
+            <span class="campo__error" id="error-nueva-categoria"></span>
+            <div style="display:flex; gap:0.5rem; margin-top:0.5rem;">
+              <button type="button" class="boton boton--primario" id="boton-guardar-categoria" style="flex:0 0 auto;">Crear categoría</button>
+              <button type="button" class="boton boton--secundario" id="boton-cancelar-categoria" style="flex:0 0 auto;">Cancelar</button>
+            </div>
+          </div>
         </div>
 
         <div class="campo">

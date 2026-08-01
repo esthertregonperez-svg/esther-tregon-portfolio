@@ -1,7 +1,7 @@
 /**
- * Rutas de categorias de material (solo lectura).
- * Se usan para rellenar el desplegable de categorias al crear/editar materiales,
- * asi que basta con el permiso de ver materiales.
+ * Rutas de categorias de material.
+ * GET  /  -> listar (para rellenar desplegables); permiso ver materiales.
+ * POST /  -> crear al vuelo desde el formulario de material; permiso crear materiales.
  */
 import { Router } from 'express';
 import * as categoriaController from '../controllers/categoria-material.controller.js';
@@ -10,6 +10,7 @@ import { exigirPermiso } from '../middlewares/permisos.middleware.js';
 
 const router = Router();
 
-router.get('/', verificarToken, exigirPermiso('materiales', 'ver'), categoriaController.listar);
+router.get('/',  verificarToken, exigirPermiso('materiales', 'ver'),   categoriaController.listar);
+router.post('/', verificarToken, exigirPermiso('materiales', 'crear'), categoriaController.crear);
 
 export default router;
