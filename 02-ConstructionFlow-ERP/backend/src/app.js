@@ -13,6 +13,7 @@ import materialRoutes from './routes/material.routes.js';
 import categoriaMaterialRoutes from './routes/categoria-material.routes.js';
 import stockRoutes from './routes/stock.routes.js';
 import pedidoRoutes from './routes/pedido.routes.js';
+import facturaRoutes from './routes/factura.routes.js';
 import empleadoRoutes from './routes/empleado.routes.js';
 import categoriaEmpleadoRoutes from './routes/categoria-empleado.routes.js';
 import authRoutes from './routes/auth.routes.js';
@@ -41,6 +42,7 @@ app.use('/api/materiales', materialRoutes);
 app.use('/api/categorias-material', categoriaMaterialRoutes);
 app.use('/api/stock', stockRoutes);
 app.use('/api/pedidos', pedidoRoutes);
+app.use('/api/facturas', facturaRoutes);
 app.use('/api/empleados', empleadoRoutes);
 app.use('/api/categorias-empleado', categoriaEmpleadoRoutes);
 
