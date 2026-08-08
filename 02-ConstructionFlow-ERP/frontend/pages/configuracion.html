@@ -1,0 +1,78 @@
+cat > frontend/pages/configuracion.html << 'FIN'
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Configuración | ConstructionFlow ERP</title>
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/modulo.css">
+  <link rel="stylesheet" href="../css/configuracion.css">
+</head>
+<body>
+
+  <div class="app">
+    <header class="cabecera" id="cabecera"></header>
+
+    <div class="app__cuerpo">
+      <nav class="menu" id="menu"></nav>
+
+      <main class="contenido">
+        <div class="modulo__cabecera">
+          <div>
+            <h1 class="contenido__titulo" data-i18n="titulo">Configuración</h1>
+            <p class="contenido__subtitulo" data-i18n="subtitulo">Personaliza la apariencia de la aplicación</p>
+          </div>
+        </div>
+
+        <div class="ajustes">
+
+          <!-- AJUSTE: idioma -->
+          <div class="ajuste">
+            <span class="ajuste__etiqueta" data-i18n="idioma_titulo">Idioma</span>
+            <span class="ajuste__ayuda" data-i18n="idioma_ayuda">Idioma de esta pantalla de configuración</span>
+            <div class="opciones" id="opciones-idioma">
+              <button class="opcion" type="button" data-valor="es">Español</button>
+              <button class="opcion" type="button" data-valor="en">English</button>
+            </div>
+          </div>
+
+          <!-- AJUSTE: tamaño de letra -->
+          <div class="ajuste">
+            <span class="ajuste__etiqueta" data-i18n="letra_titulo">Tamaño de letra</span>
+            <span class="ajuste__ayuda" data-i18n="letra_ayuda">Ajusta el tamaño del texto de la interfaz</span>
+            <div class="opciones" id="opciones-letra">
+              <button class="opcion" type="button" data-valor="pequena" data-i18n="letra_pequena">Pequeña</button>
+              <button class="opcion" type="button" data-valor="normal" data-i18n="letra_normal">Normal</button>
+              <button class="opcion" type="button" data-valor="grande" data-i18n="letra_grande">Grande</button>
+            </div>
+          </div>
+
+          <!-- AJUSTE: tema -->
+          <div class="ajuste">
+            <span class="ajuste__etiqueta" data-i18n="tema_titulo">Tema</span>
+            <span class="ajuste__ayuda" data-i18n="tema_ayuda">Elige entre modo claro y oscuro</span>
+            <div class="opciones" id="opciones-tema">
+              <button class="opcion" type="button" data-valor="claro" data-i18n="tema_claro">Claro</button>
+              <button class="opcion" type="button" data-valor="oscuro" data-i18n="tema_oscuro">Oscuro</button>
+            </div>
+          </div>
+
+        </div>
+      </main>
+    </div>
+
+    <footer class="pie">
+      <span>© 2026 Construcciones Pérez</span>
+      <span>Desarrollado por <strong>Código Azul</strong></span>
+    </footer>
+  </div>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/auth-guard.js"></script>
+  <script src="../js/layout.js"></script>
+  <script src="../js/configuracion.js"></script>
+</body>
+</html>
+FIN
