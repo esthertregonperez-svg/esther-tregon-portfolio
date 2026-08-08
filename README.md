@@ -59,7 +59,7 @@ Incluye gestión de pacientes, historias clínicas, agenda de citas, tratamiento
 
 **Estado**
 
-██░░░░░░░░ 20%
+██████████ 100%
 
 ---
 
