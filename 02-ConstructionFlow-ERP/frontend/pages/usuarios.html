@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Usuarios | ConstructionFlow ERP</title>
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/modulo.css">
+</head>
+<body>
+
+  <div class="app">
+    <header class="cabecera" id="cabecera"></header>
+
+    <div class="app__cuerpo">
+      <nav class="menu" id="menu"></nav>
+
+      <main class="contenido">
+        <div class="modulo__cabecera">
+          <div>
+            <h1 class="contenido__titulo">Usuarios</h1>
+            <p class="contenido__subtitulo" id="contador"></p>
+          </div>
+          <button class="boton boton--primario" id="boton-nuevo">Nuevo usuario</button>
+        </div>
+
+        <div class="modulo__barra">
+          <input type="search" id="buscador" class="modulo__buscador"
+                 placeholder="Buscar por email o rol...">
+        </div>
+
+        <div class="tabla__contenedor">
+          <table class="tabla">
+            <thead>
+              <tr>
+                <th>Email</th>
+                <th>Rol</th>
+                <th>Último acceso</th>
+                <th>Estado</th>
+                <th class="tabla__acciones">Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="tabla-cuerpo"></tbody>
+          </table>
+          <p class="tabla__vacio" id="mensaje-vacio" hidden>No se encontraron usuarios.</p>
+        </div>
+      </main>
+    </div>
+
+    <footer class="pie">
+      <span>© 2026 Construcciones Pérez</span>
+      <span>Desarrollado por <strong>Código Azul</strong></span>
+    </footer>
+  </div>
+
+  <!-- MODAL: nuevo usuario -->
+  <div class="modal" id="modal-usuario" hidden>
+    <div class="modal__caja">
+      <div class="modal__cabecera">
+        <h2 class="modal__titulo">Nuevo usuario</h2>
+        <button class="modal__cerrar" id="usuario-cerrar">&times;</button>
+      </div>
+
+      <form class="formulario" id="form-usuario" novalidate>
+        <div class="campo">
+          <label class="campo__etiqueta" for="email">Email *</label>
+          <input class="campo__control" type="email" id="email" required>
+          <span class="campo__error" id="error-email"></span>
+        </div>
+
+        <div class="campo">
+          <label class="campo__etiqueta" for="password">Contraseña *</label>
+          <input class="campo__control" type="password" id="password" required>
+          <span class="campo__error" id="error-password"></span>
+        </div>
+
+        <div class="campo">
+          <label class="campo__etiqueta" for="id_rol">Rol *</label>
+          <select class="campo__control" id="id_rol" required>
+            <option value="1">Administrador</option>
+            <option value="2">Dirección</option>
+            <option value="3">Administración</option>
+            <option value="4">Recepción</option>
+            <option value="5">Comercial</option>
+            <option value="6">Técnico</option>
+            <option value="7">Jefe de obra</option>
+          </select>
+          <span class="campo__error" id="error-id_rol"></span>
+        </div>
+
+        <p class="formulario__error" id="error-general" hidden></p>
+
+        <div class="modal__pie">
+          <button type="button" class="boton boton--secundario" id="usuario-cancelar">Cancelar</button>
+          <button type="submit" class="boton boton--primario">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: cambiar rol -->
+  <div class="modal" id="modal-rol" hidden>
+    <div class="modal__caja">
+      <div class="modal__cabecera">
+        <h2 class="modal__titulo">Cambiar rol</h2>
+        <button class="modal__cerrar" id="rol-cerrar">&times;</button>
+      </div>
+
+      <form class="formulario" id="form-rol" novalidate>
+        <input type="hidden" id="rol-id-usuario">
+        <p id="rol-email"></p>
+
+        <div class="campo">
+          <label class="campo__etiqueta" for="rol-select">Nuevo rol *</label>
+          <select class="campo__control" id="rol-select" required>
+            <option value="1">Administrador</option>
+            <option value="2">Dirección</option>
+            <option value="3">Administración</option>
+            <option value="4">Recepción</option>
+            <option value="5">Comercial</option>
+            <option value="6">Técnico</option>
+            <option value="7">Jefe de obra</option>
+          </select>
+        </div>
+
+        <p class="formulario__error" id="error-rol-general" hidden></p>
+
+        <div class="modal__pie">
+          <button type="button" class="boton boton--secundario" id="rol-cancelar">Cancelar</button>
+          <button type="submit" class="boton boton--primario">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: resetear contraseña -->
+  <div class="modal" id="modal-password" hidden>
+    <div class="modal__caja">
+      <div class="modal__cabecera">
+        <h2 class="modal__titulo">Resetear contraseña</h2>
+        <button class="modal__cerrar" id="password-cerrar">&times;</button>
+      </div>
+
+      <form class="formulario" id="form-password" novalidate>
+        <input type="hidden" id="password-id-usuario">
+        <p id="password-email"></p>
+
+        <div class="campo">
+          <label class="campo__etiqueta" for="password-nueva">Nueva contraseña *</label>
+          <input class="campo__control" type="password" id="password-nueva" required>
+          <span class="campo__error" id="error-password-nueva"></span>
+        </div>
+
+        <p class="formulario__error" id="error-password-general" hidden></p>
+
+        <div class="modal__pie">
+          <button type="button" class="boton boton--secundario" id="password-cancelar">Cancelar</button>
+          <button type="submit" class="boton boton--primario">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/auth-guard.js"></script>
+  <script src="../js/layout.js"></script>
+  <script src="../js/usuarios.js"></script>
+</body>
+</html>

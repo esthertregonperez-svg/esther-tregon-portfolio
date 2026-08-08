@@ -99,3 +99,64 @@ export async function listarTodos() {
 
   return filas;
 }
+
+/**
+ * Comprueba si un email ya existe, opcionalmente excluyendo un id.
+ * Sirve para validar tanto al crear como al editar.
+ */
+export async function existeEmail(email, idExcluir = null) {
+  const [filas] = await pool.query(
+    `SELECT id_usuario FROM usuario
+     WHERE email = ? AND id_usuario <> ?
+     LIMIT 1`,
+    [email, idExcluir ?? 0]
+  );
+
+  return filas.length > 0;
+}
+
+/**
+ * Inserta un usuario y devuelve el registro completo ya creado.
+ * Recibe el password ya hasheado; nunca hashea aqui.
+ * El registro devuelto por buscarPorId no incluye password_hash.
+ */
+export async function crear(datos) {
+  const [resultado] = await pool.query(
+    `INSERT INTO usuario
+       (id_rol, id_empleado, email, password_hash)
+     VALUES (?, ?, ?, ?)`,
+    [
+      datos.id_rol,
+      datos.id_empleado ?? null,
+      datos.email,
+      datos.password_hash
+    ]
+  );
+
+  return buscarPorId(resultado.insertId);
+}
+
+/**
+ * Cambia el rol de un usuario y devuelve el registro ya modificado.
+ */
+export async function cambiarRol(id, idRol) {
+  await pool.query(
+    'UPDATE usuario SET id_rol = ? WHERE id_usuario = ?',
+    [idRol, id]
+  );
+
+  return buscarPorId(id);
+}
+
+/**
+ * Baja logica (o reactivacion): fija el valor de activo.
+ * No borra la fila, para conservar el historial asociado.
+ */
+export async function cambiarActivo(id, activo) {
+  const [resultado] = await pool.query(
+    'UPDATE usuario SET activo = ? WHERE id_usuario = ?',
+    [activo ? 1 : 0, id]
+  );
+
+  return resultado.affectedRows > 0;
+}
