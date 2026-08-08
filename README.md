@@ -36,8 +36,7 @@ El proyecto digitaliza el flujo completo de trabajo de una empresa constructora,
 - Git
 
 **Estado**
-
-███████░░░ 70%
+██████████ 100%
 
 ---
 
