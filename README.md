@@ -1,222 +1,92 @@
 # 👋 Hola, soy Esther Tregón
 
-# Analista de Datos Junior | Desarrolladora de Software Junior
+## Analista Digital Junior | Desarrollo · Datos · Automatización
 
-Bienvenido a mi portfolio profesional.
+Soy **Técnica Superior en Administración de Sistemas Informáticos en Red (ASIR)** y actualmente curso el **Grado en Ingeniería Informática**.
 
-Soy estudiante de Ingeniería Informática y Analista Digital, apasionada por el desarrollo de software, el análisis de datos y la automatización de procesos.
-
-En este repositorio encontrarás proyectos desarrollados para resolver problemas reales mediante aplicaciones web, bases de datos, automatización y herramientas de análisis.
+Mi perfil combina desarrollo de software, bases de datos, análisis de datos y automatización de procesos. Me interesa especialmente crear soluciones tecnológicas aplicadas a problemas y necesidades reales.
 
 ---
 
-# 🌊 Código Azul
+# 💼 Portfolio
 
-### Software · Datos · Automatización
-
-Mi objetivo es transformar procesos empresariales en soluciones digitales eficientes mediante el desarrollo de aplicaciones, bases de datos y herramientas de análisis.
-
----
-
-# 🚀 Proyectos
-
-## ⭐ ERP ConstructionFlow (Proyecto Principal)
-
-Sistema ERP para la gestión integral de una empresa de construcción.
-
-El proyecto digitaliza el flujo completo de trabajo de una empresa constructora, centralizando clientes, presupuestos, obras, personal, materiales, documentación y seguimiento económico en una única plataforma.
-
-### Tecnologías
-
-- Node.js
-- JavaScript
-- HTML5
-- CSS3
-- MySQL
-- Git
-
-**Estado**
-██████████ 100%
-
----
-
-## ⭐ ERP ClinicFlow (Proyecto Principal)
-
-Sistema ERP para la gestión integral de una clínica dental.
-
-Incluye gestión de pacientes, historias clínicas, agenda de citas, tratamientos, inventario, stock, proveedores, facturación y paneles de control.
-
-### Tecnologías
-
-- Python
-- Flask
-- PostgreSQL
-- HTML5
-- CSS3
-- JavaScript
-- Git
-
-**Estado**
-
-██████████ 100%
-
----
-
-## 🗄️ ConstructionDB
+## 🏗️ 01 · ConstructionDB
 
 Base de datos relacional desarrollada para la gestión integral de una empresa de construcción.
 
-Proyecto realizado como Trabajo Fin de Grado.
+**Tecnologías:** MySQL · SQL · MySQL Workbench
 
-### Tecnologías
-
-- MySQL
-- SQL
-- Modelo Entidad-Relación
-- Normalización
-
-**Estado**
-
-██████████ 100%
+Incluye gestión de clientes, presupuestos, obras, empleados, proveedores, materiales, stock, pedidos y facturación.
 
 ---
 
-## 🗄️ ClinicDB
+## 🏗️ 02 · ConstructionFlow ERP
 
-Base de datos relacional desarrollada en PostgreSQL para la gestión de una clínica dental.
+Aplicación ERP orientada a la gestión y automatización de procesos de una empresa de construcción.
 
-Incluye pacientes, tratamientos, citas, inventario, proveedores y facturación.
+**Tecnologías:** JavaScript · HTML · CSS · SQL
 
-### Tecnologías
-
-- PostgreSQL
-- SQL
-- Modelo Entidad-Relación
-- Python
-
-**Estado**
-
-███░░░░░░░ 30%
+Proyecto enfocado en centralizar procesos como clientes, obras, presupuestos, materiales, proveedores, pedidos y facturación.
 
 ---
 
-## ⏱️ TimeTrack
+## 🦷 03 · ClinicFlow
 
-Aplicación web para el control de fichajes, jornadas laborales, vacaciones, permisos y ausencias.
+Aplicación de gestión para una clínica dental desarrollada en **Python**.
 
-Incluye paneles de control y estadísticas para empleados y responsables.
+**Tecnologías:** Python · Flask · PostgreSQL · HTML · CSS
 
-### Tecnologías
+Proyecto actualmente en desarrollo que integrará la gestión de pacientes, historias clínicas, presupuestos, citas, inventario, proveedores, facturación y trazabilidad de usuarios.
+
+---
+
+# 📜 Certificaciones
+
+Formación complementaria en:
 
 - Python
-- PostgreSQL
-- HTML5
-- CSS3
 - JavaScript
-- Power BI
-
-**Estado**
-
-██░░░░░░░░ 20%
-
----
-
-## 🏪 LocalConnect
-
-Plataforma para impulsar negocios locales mediante perfiles de empresa, promociones, reservas y servicios digitales.
-
-### Tecnologías
-
-- Python
-- PostgreSQL
-- HTML5
-- CSS3
-- JavaScript
-
-**Estado**
-
-█░░░░░░░░░ 10%
-
----
-
-## 📊 DataAnalyzer
-
-Aplicación desarrollada en Python para el análisis de datos, generación de informes y visualización de información empresarial.
-
-### Tecnologías
-
-- Python
-- Pandas
-- Matplotlib
-- PostgreSQL
+- SQL
+- AWS para Análisis de Datos
+- Git & GitHub
 - Excel
+- VBA
+- Make
+- Inteligencia Artificial
+- Diseño Gráfico
 
-**Estado**
+Consulta la carpeta **CERTIFICACIONES** para ver las acreditaciones.
 
-█░░░░░░░░░ 10%
+---
+
+# 🎓 Formación
+
+### Grado en Ingeniería Informática
+**UTAMED** · En curso
+
+### Técnico Superior en Administración de Sistemas Informáticos en Red
+**ASIR**
+
+### Formación en Arquitectura de Inteligencia Artificial
+**En curso**
 
 ---
 
 # 🛠️ Tecnologías
 
-### Desarrollo
-
-- Python
-- JavaScript
-- HTML5
-- CSS3
-
-### Bases de datos
-
-- MySQL
-- PostgreSQL
-- SQL
-
-### Análisis de datos
-
-- Power BI
-- Pandas
-
-### Cloud y Dev
-
-- Git
-- GitHub
-- Microsoft Azure
-
-### Automatización
-
-- VBA
-- Make
-- Google Apps Script
+`Python` · `JavaScript` · `SQL` · `MySQL` · `PostgreSQL` · `Flask`  
+`HTML` · `CSS` · `Git` · `GitHub` · `Power BI` · `AppSheet` · `Apps Script`
 
 ---
 
-# 📚 Actualmente aprendiendo
+## 🚀 Actualmente
 
-- Ingeniería Informática
-- Arquitectura de Software
-- Desarrollo Full Stack
-- Cloud Computing
-- Inteligencia Artificial aplicada al desarrollo
+🐍 Finalizando **ClinicFlow**, aplicación de gestión de clínica dental desarrollada en Python.
+
+🎓 Preparando el inicio del **Grado en Ingeniería Informática**.
 
 ---
 
-# 🎯 Objetivo
+### Código Azul
 
-Seguir creciendo como desarrolladora de software y analista de datos, diseñando soluciones empresariales que optimicen procesos, automaticen tareas y mejoren la toma de decisiones mediante el uso de datos.
-
----
-
-# 📬 Contacto
-
-🌐 **Portfolio**  
-https://codigoazul.com *(Próximamente)*
-
-💼 **LinkedIn**  
-Esther Tregón Pérez
-
-💻 **GitHub**  
-Esther-Tregon-Portfolio
-
-📧 **Correo**  
-esthertregonperez@gmail.com
+**Software · Datos · Automatización**
